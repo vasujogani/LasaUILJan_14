@@ -32,9 +32,8 @@ public class Tic {
 			//Play out the game
 			for (int j = 0; j < moves; j++) {
 				//The given move
-				String[] move = input.nextLine().split(" ");
-				int row = Integer.parseInt(move[0]);
-				int col = Integer.parseInt(move[1]);
+				int row = input.nextInt();
+				int col = nextIntLine();
 				map[row][col] = xTurn ? "X" : "O";
 				xTurn = !xTurn;
 			}
