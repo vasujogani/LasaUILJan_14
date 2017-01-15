@@ -5,81 +5,61 @@ import java.util.Scanner;
  * Kenny Tang 2017.
  */
 public class Rock {
-    public static void main(String[] args) throws Exception {
-        Scanner input = new Scanner(new File("rock.dat"));
-        doIt(input);
-    }
+	private static Scanner input;
 
-    public static void doIt(Scanner input) {
-        int limit = input.nextInt();
-        input.nextLine();
-        for (int i = 0; i < limit; i++) {
-            String[] moves = input.nextLine().split("");
-            String hisMove = "R";
-            int wins = 0;
-            int losses = 0;
-            int ties = 0;
-            for(int j = 0; j < moves.length; j++) {
-                 String mymove = moves[j];
-                 String happen = win(mymove, hisMove);
-                 if(happen.equals("W")){
-                     wins++;
-                     hisMove = opposite(mymove);
-                 } else if(happen.equals("T")){
-                     ties++;
-                 } else {
-                     losses++;
-                 }
-            }
-            System.out.println("Wins: " + wins);
-            System.out.println("Losses: " + losses);
-            System.out.println("Ties: " + ties);
-            System.out.println();
-        }
-    }
+	public static void main(String[] args) throws Exception {
+		input = new Scanner(new File("rock.dat"));
+		doIt();
+	}
 
-    private static String opposite(String move){
-        if(move.equals("R"))
-            return "P";
-        if(move.equals("P"))
-            return "S";
-        if(move.equals("S"))
-            return "R";
-        return "";
-    }
+	//Do your code here
+	public static void doIt() {
+		int limit = nextIntLine();
+		for (int i = 0; i < limit; i++) {
+			//Get each move individually
+			String[] moves = input.nextLine().split("");
+			//He starts off with rock every time
+			String hisMove = "R";
+			//Counting number of each
+			int wins = 0;
+			int losses = 0;
+			int ties = 0;
+			//Loop through each move
+			for (String mymove : moves) {
+				switch (win(mymove, hisMove)) {
+					case "W":
+						wins++;
+						//When he losses he switches to the opposite of what you played
+						hisMove = opposite(mymove);
+						break;
+					case "T":
+						ties++;
+						break;
+					case "L":
+						losses++;
+				}
+			}
+			System.out.printf("Wins: %d\r\nLosses: %d\r\nTies: %d\r\n\r\n", wins, losses, ties);
+		}
+	}
 
-    private static String win(String mymove, String hismove){
-        switch (mymove){
-            case "R":
-                switch (hismove){
-                    case "R":
-                        return "T";
-                    case "P":
-                        return "L";
-                    case "S":
-                        return "W";
-                }
-                break;
-            case "P":
-                switch (hismove){
-                    case "R":
-                        return "W";
-                    case "P":
-                        return "T";
-                    case "S":
-                        return "L";
-                }
-                break;
-            case "S":
-                switch (hismove){
-                    case "R":
-                        return "L";
-                    case "P":
-                        return "W";
-                    case "S":
-                        return "T";
-                }
-        }
-        return "";
-    }
+	//Return the opposite move
+	private static String opposite(String move) {
+		return move.equals("R") ? "P" : move.equals("P") ? "S" : "R";
+	}
+
+	//Return what happened
+	private static String win(String mymove, String hismove) {
+		if (hismove.equals(opposite(mymove)))
+			return "W";
+		else if (mymove.equals(opposite(hismove)))
+			return "L";
+		else
+			return "T";
+	}
+
+	//Return next line as int
+	private static int nextIntLine() {
+		return Integer.parseInt(input.nextLine());
+	}
 }
