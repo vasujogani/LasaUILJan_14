@@ -39,6 +39,7 @@ public class Rock {
 						losses++;
 				}
 			}
+			//Print each amount
 			System.out.printf("Wins: %d\r\nLosses: %d\r\nTies: %d\r\n\r\n", wins, losses, ties);
 		}
 	}

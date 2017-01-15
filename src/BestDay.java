@@ -32,7 +32,7 @@ public class BestDay {
 					bestDay = j + 1;
 				}
 			}
-			//Print what day bestDay corresponds to
+			//Print what day bestDay corresponds to, 1 is sunday 7 is saturday
 			switch (bestDay) {
 				case 1:
 					System.out.println("SUNDAY");
