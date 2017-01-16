@@ -14,7 +14,7 @@ public class NewTemplate {
 
 	public static void main(String[] args) throws Exception {
 		input = new Scanner(new File(NewTemplate.class.getName().toLowerCase() + ".dat"));
-		inputStream = new BufferedReader(new FileReader(new File("dryrun.dat"))).lines();
+		inputStream = new BufferedReader(new FileReader(new File(NewTemplate.class.getName().toLowerCase() + ".dat"))).lines();
 		doIt();
 	}
 
