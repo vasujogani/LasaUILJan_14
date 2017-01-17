@@ -4,7 +4,7 @@ import java.util.Scanner;
 /**
  * Kenny Tang 2017.
  */
-public class BestDay {
+class BestDay {
 
 	private static Scanner input;
 
@@ -14,7 +14,7 @@ public class BestDay {
 	}
 
 	//Do your code here
-	public static void doIt() {
+	private static void doIt() {
 		//# of weeks to check
 		int limit = nextIntLine();
 		for (int i = 0; i < limit; i++) {
@@ -62,6 +62,6 @@ public class BestDay {
 
 	//Returns next line as int
 	private static int nextIntLine() {
-		return Integer.parseInt(input.nextLine());
+		return Integer.parseInt(input.nextLine().trim());
 	}
 }

@@ -4,7 +4,7 @@ import java.util.Scanner;
 /**
  * Kenny Tang 2017.
  */
-public class Who {
+class Who {
 
 	private static Scanner input;
 
@@ -14,7 +14,7 @@ public class Who {
 	}
 
 	//Do your code here
-	public static void doIt() {
+	private static void doIt() {
 		//# of games to play
 		int limit = nextIntLine();
 		for (int i = 0; i < limit; i++) {
@@ -36,12 +36,12 @@ public class Who {
 	//Person class with its attributes
 	private static class Person {
 
-		private String name;
-		private String gender;
+		private final String name;
+		private final String gender;
 		private String hair;
 		private String eye;
-		private boolean glass;
-		private boolean hat;
+		private final boolean glass;
+		private final boolean hat;
 
 		//Constructor taking a person description
 		Person(String description) {

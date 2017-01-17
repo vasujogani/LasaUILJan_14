@@ -7,20 +7,20 @@ import java.util.stream.Stream;
 
 /**
  * Kenny Tang 2017.
+ * ~30 min
  */
-public class Othello {
+class Othello {
 
 	private static Scanner input;
-	private static Stream<String> inputStream;
 
 	public static void main(String[] args) throws Exception {
 		input = new Scanner(new File(Othello.class.getName().toLowerCase() + ".dat"));
-		inputStream = new BufferedReader(new FileReader(new File(Othello.class.getName().toLowerCase() + ".dat"))).lines();
+		Stream<String> inputStream = new BufferedReader(new FileReader(new File(Othello.class.getName().toLowerCase() + ".dat"))).lines();
 		doIt();
 	}
 
 	//Do your code here
-	public static void doIt() {
+	private static void doIt() {
 		int limit = nextIntLine();
 		for (int i = 0; i < limit; i++) {
 			//The game map as a 2D Array of strings
@@ -33,9 +33,9 @@ public class Othello {
 			//Check if anything was flipped
 			if(checkAdjacent(map, color, moveR, moveC) > 0) {
 				//Print out the new game board
-				for (int j = 0; j < map.length; j++) {
-					for (int k = 0; k < map[j].length; k++) {
-						System.out.print(map[j][k]);
+				for (String[] aMap : map) {
+					for (String anAMap : aMap) {
+						System.out.print(anAMap);
 					}
 					System.out.println();
 				}
@@ -128,30 +128,8 @@ public class Othello {
 		return parsed;
 	}
 
-	//Parse the input into a 2d array of int specifying # lines and the regex to split
-	private static int[][] parseInput2DInt(int lines, String spliter) {
-		int[][] parsed = new int[lines][];
-		for (int i = 0; i < lines; i++) {
-			String[] inString = input.nextLine().split(spliter);
-			parsed[i] = new int[inString.length];
-			for (int j = 0; j < inString.length; j++) {
-				parsed[i][j] = Integer.parseInt(inString[j]);
-			}
-		}
-		return parsed;
-	}
-
-	//Check if a 2d array contains a value o
-	private static <E> boolean contains2D(E[][] array, E o) {
-		for (E[] row : array)
-			for (E val : row)
-				if (val.equals(o))
-					return true;
-		return false;
-	}
-
 	//Returns next line as int
 	private static int nextIntLine() {
-		return Integer.parseInt(input.nextLine());
+		return Integer.parseInt(input.nextLine().trim());
 	}
 }

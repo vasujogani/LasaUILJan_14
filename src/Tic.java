@@ -4,7 +4,7 @@ import java.util.Scanner;
 /**
  * Kenny Tang 2017.
  */
-public class Tic {
+class Tic {
 
 	private static Scanner input;
 
@@ -13,7 +13,7 @@ public class Tic {
 		doIt();
 	}
 
-	public static void doIt() {
+	private static void doIt() {
 		//# of games in input
 		int lim = nextIntLine();
 		for (int z = 0; z < lim; z++) {

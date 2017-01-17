@@ -7,19 +7,18 @@ import java.util.stream.Stream;
 /**
  * Kenny Tang 2017.
  */
-public class NewTemplate {
+class NewTemplate {
 
 	private static Scanner input;
-	private static Stream<String> inputStream;
 
 	public static void main(String[] args) throws Exception {
 		input = new Scanner(new File(NewTemplate.class.getName().toLowerCase() + ".dat"));
-		inputStream = new BufferedReader(new FileReader(new File(NewTemplate.class.getName().toLowerCase() + ".dat"))).lines();
+		Stream<String> inputStream = new BufferedReader(new FileReader(new File(NewTemplate.class.getName().toLowerCase() + ".dat"))).lines();
 		doIt();
 	}
 
 	//Do your code here
-	public static void doIt() {
+	private static void doIt() {
 
 	}
 
@@ -58,6 +57,6 @@ public class NewTemplate {
 
 	//Returns next line as int
 	private static int nextIntLine() {
-		return Integer.parseInt(input.nextLine());
+		return Integer.parseInt(input.nextLine().trim());
 	}
 }

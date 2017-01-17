@@ -4,7 +4,7 @@ import java.util.Scanner;
 /**
  * Kenny Tang 2017.
  */
-public class Rock {
+class Rock {
 	private static Scanner input;
 
 	public static void main(String[] args) throws Exception {
@@ -13,7 +13,7 @@ public class Rock {
 	}
 
 	//Do your code here
-	public static void doIt() {
+	private static void doIt() {
 		int limit = nextIntLine();
 		for (int i = 0; i < limit; i++) {
 			//Get each move individually

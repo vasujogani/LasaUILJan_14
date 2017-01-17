@@ -1,3 +1,5 @@
+package nowork;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,13 +8,13 @@ import java.util.Scanner;
 /**
  * Kenny Tang 2017.
  */
-public class Cards {
+class Cards {
 	public static void main(String[] args) throws Exception {
 		Scanner input = new Scanner(new File("cards.dat"));
 		doIt(input);
 	}
 
-	public static void doIt(Scanner input) {
+	private static void doIt(Scanner input) {
 		int limit = input.nextInt();
 		input.nextLine();
 		for (int i = 0; i < limit; i++) {

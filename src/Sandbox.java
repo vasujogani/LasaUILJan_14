@@ -4,7 +4,7 @@ import java.util.Scanner;
 /**
  * Kenny Tang 2017.
  */
-public class Sandbox {
+class Sandbox {
 
 	public static void main(String[] args) throws Exception {
 		Scanner input = new Scanner(new File("sandbox.dat"));
@@ -12,7 +12,7 @@ public class Sandbox {
 	}
 
 	//Do your code here
-	public static void doIt(Scanner input) {
+	private static void doIt(Scanner input) {
 		//# of sandboxes
 		int limit = Integer.parseInt(input.nextLine());
 		for (int i = 0; i < limit; i++) {
