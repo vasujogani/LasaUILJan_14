@@ -2,7 +2,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class LASA_8Cards {
+public class Cards {
 	public static void main(String[] args) throws Exception{
 		Scanner input = new Scanner(new File("cards.dat")); //initial pulling data from file
 		doIt(input);
